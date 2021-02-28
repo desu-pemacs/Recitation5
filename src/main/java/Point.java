@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 /**
  * Represents a 2-dimensional point.
  *
@@ -111,8 +113,26 @@ public class Point
     /**
      * Returns the string representation of this point.
      */
+    @Override
     public String toString()
     {
         return "("+x+","+y+")";
+    }
+
+    /**
+     * Returns true if an only if o is an instance of Point and o's x and y
+     * values are equal to this Point object's x and y values
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Point point = (Point) o;
+        return Double.compare(point.x, x) == 0 && Double.compare(point.y, y) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
     }
 }

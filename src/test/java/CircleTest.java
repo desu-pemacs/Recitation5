@@ -39,10 +39,20 @@ class CircleTest {
         Point expected = p;
         Point actual = c.getLocation();
         assertEquals(expected,actual,"Expected:\n"+expected+"\nActual:\n"+actual);
+        assertFalse(actual == expected, "Expected:\n"+expected+"\nActual:\n"+actual);
     }
 
     @Test
     void setRadius() {
+        double x = rand.nextInt(100);
+        double y = rand.nextInt(100);
+        double radius = rand.nextInt(100);
+        Point p = new Point(x,y);
+        Circle c = new Circle(p,0);
+        c.setRadius(radius);
+        String expected = "Circle/loc=("+x+","+y+"),radius="+radius;
+        String actual = c.toString();
+        assertEquals(expected,actual,"Expected:\n"+expected+"\nActual:\n"+actual);
     }
 
     @Test
@@ -55,6 +65,10 @@ class CircleTest {
         Point expected = p;
         Point actual = c.getLocation();
         assertEquals(expected,actual,"Expected:\n"+expected+"\nActual:\n"+actual);
+        //check if a clone of p was made
+        p.setX(p.getX()+5);
+        p.setY(p.getY()+5);
+        assertNotEquals(expected,actual,"Expected:\n"+expected+"\nActual:\n"+actual);
     }
 
     @Test
