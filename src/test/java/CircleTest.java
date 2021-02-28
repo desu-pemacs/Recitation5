@@ -16,6 +16,11 @@ class CircleTest {
         String expected = "Circle/loc=("+x+","+y+"),radius="+radius;
         String actual = c.toString();
         assertEquals(expected,actual,"Expected:\n"+expected+"\nActual:\n"+actual);
+        // check if constructor clones location
+        p.setX(p.getX()+5);
+        actual = c.toString();
+        String message = "Expected:\n"+expected+"\nActual:\n"+actual+"\nMake sure you return a copy of the object!";
+        assertNotEquals(expected,actual,message);
     }
 
     @Test
@@ -39,7 +44,11 @@ class CircleTest {
         Point expected = p;
         Point actual = c.getLocation();
         assertEquals(expected,actual,"Expected:\n"+expected+"\nActual:\n"+actual);
-        assertFalse(actual == expected, "Expected:\n"+expected+"\nActual:\n"+actual);
+        //check that a copy of location is returned.
+        actual.setX(actual.getX()+5);
+        actual = c.getLocation();
+        String message = "Expected:\n"+expected+"\nActual:\n"+actual+"\nMake sure you return a copy of the object!";
+        assertEquals(expected,actual,message);
     }
 
     @Test
@@ -66,9 +75,11 @@ class CircleTest {
         Point actual = c.getLocation();
         assertEquals(expected,actual,"Expected:\n"+expected+"\nActual:\n"+actual);
         //check if a clone of p was made
+        String circleExpected = c.toString();
         p.setX(p.getX()+5);
         p.setY(p.getY()+5);
-        assertNotEquals(expected,actual,"Expected:\n"+expected+"\nActual:\n"+actual);
+        String circleActual = c.toString();String message = "Expected:\n"+expected+"\nActual:\n"+actual+"\nMake sure you return a copy of the object!";
+        assertEquals(circleExpected,circleActual,message);
     }
 
     @Test
