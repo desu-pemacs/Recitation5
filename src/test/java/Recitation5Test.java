@@ -7,7 +7,7 @@ class Recitation5Test extends OutputTest{
     void test_main_1() {
         setTestInput("12\n14");
         Recitation5.main(new String[]{});
-        String expected = "Circles intersects!";
+        String expected = "Circles intersect!";
         String actual = getTestOutput();
         String message = "Test Failed!\nExpecting:\n"+expected+"\nActual:\n"+actual;
         assertTrue(Pattern.compile(expected.replaceAll("\\s",""))

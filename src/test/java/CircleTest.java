@@ -20,7 +20,7 @@ class CircleTest {
         p.setX(p.getX()+5);
         actual = c.toString();
         String message = "Expected:\n"+expected+"\nActual:\n"+actual+"\nMake sure you return a copy of the object!";
-        assertNotEquals(expected,actual,message);
+        assertEquals(expected,actual,message);
     }
 
     @Test
