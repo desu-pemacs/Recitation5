@@ -2,8 +2,8 @@
  * This class provides a simple Circle type that
  * creates and tracks instances of circles.
  *
- * @author (You Me)
- * @version (2018-02-05)
+ * @author (You & Me)
+ * @version (2019-10-15)
  */
 public class Circle
 {
